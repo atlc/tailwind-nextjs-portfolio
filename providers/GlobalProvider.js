@@ -23,5 +23,12 @@ export const GlobalProvider = ({ children }) => {
         }
     }, [state.isDark]);
 
+    useEffect(() => {
+        const colorTheme = localStorage.getItem("colorTheme");
+        if (colorTheme !== null) {
+            dispatch({ type: "change_color", payload: colorTheme });
+        }
+    }, []);
+
     return <GlobalContext.Provider value={{ state, dispatch }}>{children}</GlobalContext.Provider>;
 };

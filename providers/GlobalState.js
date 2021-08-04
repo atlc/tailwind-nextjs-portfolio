@@ -1,6 +1,7 @@
 export const reducer = (state, action) => {
     switch (action.type) {
         case "change_color":
+            localStorage.setItem("colorTheme", action.payload);
             return {
                 ...state,
                 colorTheme: action.payload,
