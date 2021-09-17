@@ -1,0 +1,23 @@
+import React from "react";
+import { useContext } from "react";
+import { GlobalContext } from "../providers/GlobalProvider";
+
+const Card = ({ header, subheader, body, sub_body }) => {
+    const { state, dispatch } = useContext(GlobalContext);
+    const { colorTheme: color } = state;
+
+    return (
+        <div
+            className={`w-5/6 md:w-2/3 lg:w-2/5 mt-4 border-2 border-${color}-300 dark:border-${color}-800 rounded-lg bg-${color}-50 dark:bg-${color}-300 p-3 shadow-2xl`}>
+            <div
+                className={`bg-${color}-200 shadow-lg rounded-lg mt-2 text-center text-${color}-800 dark:text-${color}-900 p-3 dark:bg-${color}-400`}>
+                <div className="text-xl font-medium md:text-2xl">{header}</div>
+                {subheader && <div className="text-lg italic md:text-xl">{subheader}</div>}
+            </div>
+            <div className={`p-2 mt-2 text-${color}-800 dark:text-${color}-900`}>{body}</div>
+            {sub_body && <div className={`p-2 text-${color}-800 dark:text-${color}-900`}>{sub_body}</div>}
+        </div>
+    );
+};
+
+export default Card;
