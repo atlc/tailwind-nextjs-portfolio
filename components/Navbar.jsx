@@ -1,10 +1,11 @@
-import React, { useState, useContext } from "react";
-import { GlobalContext } from "../providers/GlobalProvider";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
 import { AiOutlineCode } from "react-icons/ai";
 import { FiSun, FiMoon } from "react-icons/fi";
 import { IoMdColorPalette } from "react-icons/io";
+import { useSelector, useDispatch } from "react-redux";
+import { change_color, selectColor, selectDarkMode, toggle } from "../store/reducers";
 
 const links = [
     { path: "/", text: "Home" },
@@ -17,9 +18,10 @@ const colors = ["red", "yellow", "green", "blue", "indigo", "purple", "pink"];
 const Navbar = () => {
     const [openMenu, setOpenMenu] = useState(false);
     const [showColorModal, setShowColorModal] = useState(false);
-    const { state, dispatch } = useContext(GlobalContext);
-    const { colorTheme: color } = state;
     const { pathname } = useRouter();
+    const color = useSelector(selectColor);
+    const isDark = useSelector(selectDarkMode);
+    const dispatch = useDispatch();
 
     const standardButtonClasses = `text-${color}-900 hover:bg-${color}-500 hover:text-white px-3 py-2 rounded-md text-md font-medium`;
     const activeButtonClasses = `text-gray-100 shadow-xl bg-${color}-600 px-3 py-2 rounded-md text-md font-medium`;
@@ -55,7 +57,7 @@ const Navbar = () => {
                                     <div className="flex flex-wrap justify-center">
                                         {colors.map(color => (
                                             <button
-                                                onClick={() => dispatch({ type: "change_color", payload: color })}
+                                                onClick={() => dispatch(change_color(color))}
                                                 key={`${color}-button-selector`}
                                                 className={`shadow-xl bg-${color}-500 hover:bg-${color}-900 hover:text-${color}-300 text-white block px-3 py-2 mx-1 mt-2 rounded-md text-base font-medium`}>
                                                 <code>{color}</code>
@@ -63,8 +65,8 @@ const Navbar = () => {
                                         ))}
                                         <button
                                             className="block px-3 py-2 mx-2 mt-4 text-base font-medium border border-black border-solid rounded-md dark:text-white"
-                                            onClick={() => dispatch({ type: "toggle_dm" })}>
-                                            See colors in {state.isDark ? "light" : "dark"} mode
+                                            onClick={() => dispatch(toggle())}>
+                                            See colors in {isDark ? "light" : "dark"} mode
                                         </button>
                                     </div>
                                 </div>
@@ -136,8 +138,8 @@ const Navbar = () => {
                             <button onClick={() => setShowColorModal(true)} className="mx-2">
                                 <IoMdColorPalette />
                             </button>
-                            <button className="mx-2" onClick={() => dispatch({ type: "toggle_dm" })}>
-                                {state?.isDark ? <FiMoon /> : <FiSun />}
+                            <button className="mx-2" onClick={() => dispatch(toggle())}>
+                                {isDark ? <FiMoon /> : <FiSun />}
                             </button>
                         </div>
                     </div>

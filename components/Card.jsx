@@ -1,11 +1,9 @@
 import React from "react";
-import { useContext } from "react";
-import { GlobalContext } from "../providers/GlobalProvider";
+import { useSelector } from "react-redux";
+import { selectColor } from "../store/reducers";
 
 const Card = ({ header, subheader, body, sub_body }) => {
-    const { state, dispatch } = useContext(GlobalContext);
-    const { colorTheme: color } = state;
-
+    const color = useSelector(selectColor);
     return (
         <div
             className={`w-5/6 md:w-2/3 lg:w-2/5 mt-4 border-2 border-${color}-300 dark:border-${color}-800 rounded-lg bg-${color}-50 dark:bg-${color}-300 p-3 shadow-2xl`}>
