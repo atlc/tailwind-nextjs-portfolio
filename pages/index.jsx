@@ -11,8 +11,6 @@ const Home = () => {
     const dispatch = useDispatch();
     const visit_multiplier = useSelector(selectHasVisited) ? 0 : 1;
 
-    const standardButtonClasses = `text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 px-3 mx-2 py-2 rounded-md text-md font-medium`;
-
     let array_to_get_around_batched_updates = [...text];
 
     const create_delay = (delayed_text, seconds) => {
@@ -38,10 +36,16 @@ const Home = () => {
                     create_delay(
                         <>
                             <Link href="/experience">
-                                <button className={standardButtonClasses}>Experience</button>
+                                <button
+                                    className={`text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 px-3 mx-2 py-2 rounded-md text-md font-medium`}>
+                                    Experience
+                                </button>
                             </Link>
                             <Link href="/projects">
-                                <button className={standardButtonClasses}>Projects</button>
+                                <button
+                                    className={`text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 px-3 mx-2 py-2 rounded-md text-md font-medium`}>
+                                    Projects
+                                </button>
                             </Link>
                         </>,
                         2
