@@ -2,20 +2,29 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const DARK_MODE_KEY = "darkMode";
 const COLOR_THEME_KEY = "colorTheme";
+const HAS_VISITED_KEY = "hasVisited";
 
 const IS_SERVER = typeof window === "undefined";
 
 const local_storage = {};
 
+// Necessary for debug only mode since Nextjs isn't sure if this is server-side or client-side code
+// Otherwise the values would just be evaluated in their respective initial states
+// Consider checking NODE ENV for cleanup later
 if (!IS_SERVER) {
     const darkMode = localStorage.getItem(DARK_MODE_KEY);
     const colorTheme = localStorage.getItem(COLOR_THEME_KEY);
+    const hasVisited = localStorage.getItem(HAS_VISITED_KEY);
 
     if (darkMode) {
         local_storage.darkMode = JSON.parse(darkMode);
     }
     if (colorTheme) {
         local_storage.colorTheme = colorTheme;
+    }
+    if (hasVisited) {
+        // If anything exists in LS for this property, then they've already been here. No need to parse/evaluate
+        local_storage.hasVisited = true;
     }
 }
 
@@ -55,10 +64,11 @@ export const darkModeSlice = createSlice({
 export const hasVisitedSlice = createSlice({
     name: "hasVisited",
     initialState: {
-        value: false
+        value: local_storage.hasVisited || false
     },
     reducers: {
         check_in: state => {
+            localStorage.setItem(HAS_VISITED_KEY, true);
             state.value = true;
         }
     }
