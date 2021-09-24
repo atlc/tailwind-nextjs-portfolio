@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectColor } from "../store/reducers";
 
-const Card = ({ header, subheader, body, sub_body }) => {
+const Card = ({ header, subheader, bodies, second_body, sub_body, second_sub_body }) => {
     const color = useSelector(selectColor);
     return (
         <div
@@ -12,8 +12,20 @@ const Card = ({ header, subheader, body, sub_body }) => {
                 <div className="text-2xl font-light md:text-4xl">{header}</div>
                 {subheader && <div className="text-lg italic font-light md:text-2xl md:text-xl">{subheader}</div>}
             </div>
-            <div className={`font-light text-base md:text-xl p-2 mt-2 text-${color}-800 dark:text-${color}-900`}>{body}</div>
+            {bodies.map((body, index) => (
+                <div
+                    key={`card-body-paragraph-${index}`}
+                    className={`font-light text-base md:text-xl p-2 mt-2 text-${color}-800 dark:text-${color}-900`}>
+                    {body}
+                </div>
+            ))}
             {sub_body && <div className={`font-bold text-sm md:text-lg p-2 text-${color}-800 dark:text-${color}-900`}>{sub_body}</div>}
+            {second_body && (
+                <div className={`font-light text-base md:text-xl p-2 mt-2 text-${color}-800 dark:text-${color}-900`}>{second_body}</div>
+            )}
+            {second_sub_body && (
+                <div className={`font-bold text-sm md:text-lg p-2 text-${color}-800 dark:text-${color}-900`}>{second_sub_body}</div>
+            )}
         </div>
     );
 };

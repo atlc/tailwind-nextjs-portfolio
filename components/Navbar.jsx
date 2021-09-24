@@ -23,11 +23,11 @@ const Navbar = () => {
     const isDark = useSelector(selectDarkMode);
     const dispatch = useDispatch();
 
-    const standardButtonClasses = `text-${color}-900 hover:bg-${color}-500 hover:text-white px-3 py-2 rounded-md text-md font-medium`;
-    const activeButtonClasses = `text-gray-100 shadow-xl bg-${color}-600 px-3 py-2 rounded-md text-md font-medium`;
+    const standardButtonClasses = `text-${color}-700 dark:text-${color}-400 hover:bg-${color}-600 hover:text-${color}-100 dark:hover:text-${color}-100 px-3 py-2 rounded-md text-md font-light`;
+    const activeButtonClasses = `text-${color}-50 shadow-xl bg-${color}-600 px-3 py-2 rounded-md text-md font-light`;
 
-    const mobileButtonClasses = `text-${color}-900 hover:bg-${color}-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium`;
-    const mobileActiveButtonClasses = `text-gray-100 shadow-xl bg-${color}-600 block px-3 py-2 rounded-md text-base font-medium`;
+    const mobileButtonClasses = `text-${color}-700 dark:text-${color}-400 hover:bg-${color}-600 hover:text-${color}-100 dark:hover:text-${color}-100 block px-3 py-2 rounded-md text-base font-light`;
+    const mobileActiveButtonClasses = `text-${color}-50 shadow-xl bg-${color}-600 block px-3 py-2 rounded-md text-base font-light`;
 
     return (
         <>
@@ -42,7 +42,7 @@ const Navbar = () => {
                                 <div className="flex items-start justify-between p-5 border-b border-solid rounded-t border-blueGray-200">
                                     <h1 className={`text-center text-3xl dark:text-${color}-800`}>
                                         We're updating the <span className={`text-${color}-600`}>color theme</span> for this whole site with
-                                        React's Context API & persisting your choice in <code>localStorage!</code>
+                                        Redux & persisting your choice in <code>localStorage!</code>
                                     </h1>
                                     <button
                                         className="float-right p-1 ml-auto text-3xl font-semibold leading-none text-black bg-transparent border-0 outline-none opacity-5 focus:outline-none"
@@ -95,13 +95,13 @@ const Navbar = () => {
                             <button
                                 onClick={() => setOpenMenu(!openMenu)}
                                 type="button"
-                                className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                                className={`inline-flex items-center justify-center p-2 text-${color}-400 rounded-md hover:text-${color}-100 hover:bg-${color}-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-${color}-500`}
                                 aria-controls="mobile-menu"
                                 aria-expanded="false">
                                 <span className="sr-only">Open main menu</span>
                                 {/* Icon when menu is closed. Heroicon name: outline/menu. Menu open: "hidden", Menu closed: "block" */}
                                 <svg
-                                    className={`block w-6 h-6 text-2xl text-${color}-900`}
+                                    className={`block w-6 h-6 text-2xl text-${color}-900 hover:text-${color}-900`}
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
                                     viewBox="0 0 24 24"
@@ -113,14 +113,14 @@ const Navbar = () => {
                         </div>
                         <div className="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
                             <div className="flex items-center flex-shrink-0">
-                                <a href="/" className={`flex w-auto h-8 text-3xl text-${color}-900 lg:hidden`}>
+                                <div className={`flex w-auto h-8 text-3xl text-${color}-900 lg:hidden`}>
                                     <AiOutlineCode />
-                                    <span className="pl-1 text-2xl">@atlc</span>
-                                </a>
-                                <a href="/" className={`items-center hidden w-auto h-8 text-4xl text-${color}-900 lg:flex`}>
+                                    <span className="pb-2 pl-1 text-2xl md:pb-1">@atlc</span>
+                                </div>
+                                <div className={`items-center hidden w-auto h-8 text-4xl text-${color}-900 lg:flex`}>
                                     <AiOutlineCode />
-                                    <span className="pl-1 text-2xl">@atlc</span>
-                                </a>
+                                    <span className="pb-2 pl-1 text-2xl md:pb-1">@atlc</span>
+                                </div>
                             </div>
                             <div className="hidden sm:block sm:ml-6">
                                 <div className="flex space-x-4">

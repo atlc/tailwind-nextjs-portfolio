@@ -69,7 +69,7 @@ const Home = () => {
                     </div>
                 </Layout>
             </div>
-            <footer className="flex items-center px-5 -mt-20 md:px-20">
+            <footer className="flex items-center px-3 -mt-20 md:px-20">
                 <p
                     className={`-mt-20 leading-7 md:leading-10 mx-auto text-center text-${color}-800 dark:text-${color}-300 font-light text-md md:text-xl`}>
                     This site was built utilizing{" "}
@@ -80,19 +80,19 @@ const Home = () => {
                     <a className={button_style.sm} href="https://tailwindcss.com/">
                         Tailwind CSS
                     </a>
-                    , and managed color theme and other global settings with{" "}
+                    , and the color theme and other global settings were managed with{" "}
                     <a className={button_style.sm} href="https://react-redux.js.org/">
-                        React-Redux
+                        Redux
                     </a>{" "}
                     (formerly managed with the{" "}
                     <a
-                        className={`font-mono text-sm md:text-lg p-1 rounded-md bg-gray-700 text-${color}-100 dark:bg-gray-600 dark:text-${color}-300`}
+                        className={`font-mono text-sm md:text-lg px-1 rounded-md bg-gray-700 text-${color}-300 dark:bg-gray-600 dark:text-${color}-300`}
                         href="https://reactjs.org/docs/hooks-reference.html#usecontext">
                         useContext
                     </a>{" "}
-                    and{" "}
+                    +{" "}
                     <a
-                        className={`font-mono text-sm md:text-lg p-1 rounded-md bg-gray-700 text-${color}-100 dark:bg-gray-600 dark:text-${color}-300`}
+                        className={`font-mono text-sm md:text-lg px-1 rounded-md bg-gray-700 text-${color}-300 dark:bg-gray-600 dark:text-${color}-300`}
                         href="https://reactjs.org/docs/hooks-reference.html#usereducer">
                         useReducer
                     </a>{" "}
