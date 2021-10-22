@@ -8,7 +8,6 @@ const projects = [
         title: "Project",
         description:
             "Taught students in our online full-stack bootcamp in day-to-day classes, performed video code reviews for student lab submissions, and provided community support to our part time students via Discord.",
-        dates: "November 2020 - Present",
         link: "https://covalence.io/",
         icon: <GiAtom />
     },
@@ -16,31 +15,20 @@ const projects = [
         title: "Project2",
         description:
             "Taught students in our online full-stack bootcamp in day-to-day classes, performed video code reviews for student lab submissions, and provided community support to our part time students via Discord.",
-        dates: "November 2020 - Present",
         link: "https://covalence.io/",
         icon: <GiAtom />
     },
     {
-        title: "Project2",
+        title: "Node Modules",
         description:
             "Taught students in our online full-stack bootcamp in day-to-day classes, performed video code reviews for student lab submissions, and provided community support to our part time students via Discord.",
-        dates: "November 2020 - Present",
         link: "https://covalence.io/",
         icon: <GiAtom />
     },
     {
-        title: "Project2",
+        title: "Chrome Extensions",
         description:
             "Taught students in our online full-stack bootcamp in day-to-day classes, performed video code reviews for student lab submissions, and provided community support to our part time students via Discord.",
-        dates: "November 2020 - Present",
-        link: "https://covalence.io/",
-        icon: <GiAtom />
-    },
-    {
-        title: "Project2",
-        description:
-            "Taught students in our online full-stack bootcamp in day-to-day classes, performed video code reviews for student lab submissions, and provided community support to our part time students via Discord.",
-        dates: "November 2020 - Present",
         link: "https://covalence.io/",
         icon: <GiAtom />
     }
@@ -50,8 +38,8 @@ const Experience = () => {
     return (
         <Layout>
             <CardContainer>
-                {projects.map(({ title, employer, dates, description }, index) => (
-                    <Card key={`experience-card-${index}`} header={title} body={description} sub_body={dates} />
+                {projects.map(({ title, description, link }, index) => (
+                    <Card key={`project-card-${index}`} header={title} bodies={[description]} second_body={link} />
                 ))}
             </CardContainer>
         </Layout>

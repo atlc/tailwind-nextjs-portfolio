@@ -12,13 +12,14 @@ const Card = ({ header, subheader, bodies, second_body, sub_body, second_sub_bod
                 <div className="text-2xl font-light md:text-4xl">{header}</div>
                 {subheader && <div className="text-lg italic font-light md:text-2xl md:text-xl">{subheader}</div>}
             </div>
-            {bodies.map((body, index) => (
-                <div
-                    key={`card-body-paragraph-${index}`}
-                    className={`font-light text-base md:text-xl p-2 mt-2 text-${color}-800 dark:text-${color}-900`}>
-                    {body}
-                </div>
-            ))}
+            {bodies &&
+                bodies.map((body, index) => (
+                    <div
+                        key={`card-body-paragraph-${index}`}
+                        className={`font-light text-base md:text-xl p-2 mt-2 text-${color}-800 dark:text-${color}-900`}>
+                        {body}
+                    </div>
+                ))}
             {sub_body && <div className={`font-bold text-sm md:text-lg p-2 text-${color}-800 dark:text-${color}-900`}>{sub_body}</div>}
             {second_body && (
                 <div className={`font-light text-base md:text-xl p-2 mt-2 text-${color}-800 dark:text-${color}-900`}>{second_body}</div>

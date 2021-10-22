@@ -1,24 +1,26 @@
 {
-  "name": "portfolio-site",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@reduxjs/toolkit": "^1.6.1",
-    "bootstrap": "^5.0.2",
-    "next": "^11.0.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-icons": "^4.2.0",
-    "react-redux": "^7.2.5"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.3.1",
-    "postcss": "^8.3.6",
-    "tailwindcss": "^2.2.7"
-  }
+    "name": "portfolio-site",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "rebuild": "zsh -c '. ~/.zshrc && next build && killport 3000; ding 3 && next start >/dev/null 2&>1 && echo `Restarted server lol`'"
+    },
+    "dependencies": {
+        "@reduxjs/toolkit": "^1.6.1",
+        "bootstrap": "^5.0.2",
+        "next": "^11.0.0",
+        "react": "17.0.2",
+        "react-dom": "17.0.2",
+        "react-icons": "^4.2.0",
+        "react-redux": "^7.2.5"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.3.1",
+        "eslint": "^8.0.1",
+        "postcss": "^8.3.6",
+        "tailwindcss": "^2.2.7"
+    }
 }
