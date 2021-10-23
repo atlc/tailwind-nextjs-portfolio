@@ -1,7 +1,8 @@
-import Image from "next/image";
 import { MdPhotoCamera } from "react-icons/md";
+import { IoLogoNpm } from "react-icons/io";
+import { AiOutlineGithub } from "react-icons/ai";
 import { useSelector } from "react-redux";
-import { selectColor } from "../store/reducers";
+import { selectColor, selectDarkMode } from "../store/reducers";
 import Layout from "../components/Layout";
 import CardContainer from "../components/CardContainer";
 import Card from "../components/Card";
@@ -20,23 +21,26 @@ const LGQuote = ({ children }) => (
 
 const Experience = () => {
     const color = useSelector(selectColor);
+    const dark = useSelector(selectDarkMode);
 
     const SwalWithImages = async links => {
         const images = links.map(link => {
-            if (link.includes("mp4")) {
+            if (link.url.includes("mp4")) {
                 return {
                     html: (
                         <video autoPlay loop muted>
-                            <source src={link} type="video/mp4" />
+                            <source src={link.url} type="video/mp4" />
                         </video>
-                    )
+                    ),
+                    text: link.text || ""
                 };
             } else {
-                return { imageUrl: link };
+                return { imageUrl: link.url, text: link.text || "" };
             }
         });
 
         const queue = SwalWRC.mixin({
+            background: dark && `${color}`,
             showClass: {
                 backdrop: `swal2-noanimation`,
                 popup: "",
@@ -69,15 +73,20 @@ const Experience = () => {
                     and queries.
                 </p>,
 
-                <p>Tech stack used: Node.js, Typescript, Express, Passport, MySQL, Mailgun, Heroku, DigitalOcean</p>
+                <div className="flex">Tech stack used: Node.js, Typescript, Express, Passport, MySQL, Mailgun, Heroku, DigitalOcean</div>
             ],
             link: (
-                <a
-                    className={`text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 px-3 mx-2 py-2 rounded-md text-md font-light`}
-                    target="_blank"
-                    href="https://github.com/atlc/core-api">
-                    core-api
-                </a>
+                <div className="flex">
+                    <a
+                        className={`text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 px-3 mx-2 py-2 rounded-md text-md font-light`}
+                        target="_blank"
+                        href="https://github.com/atlc/core-api">
+                        <span className="flex text-3xl">
+                            <AiOutlineGithub />
+                        </span>{" "}
+                        core-api
+                    </a>
+                </div>
             )
         },
         {
@@ -101,20 +110,30 @@ const Experience = () => {
                 </p>
             ],
             link: (
-                <>
-                    <a
-                        className={`text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 px-3 mx-2 py-2 rounded-md text-md font-light`}
-                        target="_blank"
-                        href="https://www.npmjs.com/package/@atlc/hibp">
-                        @atlc/hibp
-                    </a>
-                    <a
-                        className={`text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 px-3 mx-2 py-2 rounded-md text-md font-light`}
-                        target="_blank"
-                        href="https://www.npmjs.com/package/shitpostify">
-                        shitpostify
-                    </a>
-                </>
+                <div className="flex">
+                    <div className="flex">
+                        <a
+                            className={`text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 px-3 mx-2 py-2 rounded-md text-md font-light`}
+                            target="_blank"
+                            href="https://www.npmjs.com/package/@atlc/hibp">
+                            <span className="flex text-3xl">
+                                <IoLogoNpm />
+                            </span>{" "}
+                            @atlc/hibp
+                        </a>
+                    </div>
+                    <div className="flex">
+                        <a
+                            className={`text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 px-3 mx-2 py-2 rounded-md text-md font-light`}
+                            target="_blank"
+                            href="https://www.npmjs.com/package/shitpostify">
+                            <span className="flex text-3xl">
+                                <IoLogoNpm />
+                            </span>{" "}
+                            shitpostify
+                        </a>
+                    </div>
+                </div>
             )
         },
         {
@@ -129,8 +148,8 @@ const Experience = () => {
                             className="text-3xl"
                             onClick={() =>
                                 SwalWithImages([
-                                    "https://raw.githubusercontent.com/atlc/arduino-smoke-detector/master/demo.gif",
-                                    "https://raw.githubusercontent.com/atlc/arduino-smoke-detector/master/schematic.png"
+                                    { url: "https://raw.githubusercontent.com/atlc/arduino-smoke-detector/master/demo.gif" },
+                                    { url: "https://raw.githubusercontent.com/atlc/arduino-smoke-detector/master/schematic.png" }
                                 ])
                             }>
                             <MdPhotoCamera />
@@ -143,31 +162,58 @@ const Experience = () => {
                 </div>,
                 <div>
                     <div className="flex">
-                        <p className="mr-2">Anglerfish [pics with modal?]</p>
+                        <p className="mr-2">
+                            <LGQuote>The Anglerfish</LGQuote>, Halloween 2018
+                        </p>
                         <button
                             className="text-3xl"
-                            onClick={() => SwalWithImages(["https://i.imgur.com/eMRZGFy.mp4", "https://i.imgur.com/q9Eytam.mp4"])}>
+                            onClick={() =>
+                                SwalWithImages([{ url: "https://i.imgur.com/eMRZGFy.mp4" }, { url: "https://i.imgur.com/q9Eytam.mp4" }])
+                            }>
                             <MdPhotoCamera />
                         </button>
                     </div>
-                    <p>Arcade games [pics with modal?]</p>
+                    <p>Had some great collaborative work with my partner for some grotesque anglerfish costumes Halloween 2018.</p>
+                </div>,
+                <div>
+                    <div className="flex">
+                        <p className="mr-2">
+                            <LGQuote>Arcade Games</LGQuote>, Halloween 2019
+                        </p>
+                        <button
+                            className="text-3xl"
+                            onClick={() =>
+                                SwalWithImages([
+                                    { url: "https://i.imgur.com/mACOiIT.mp4" },
+                                    {
+                                        url: "https://i.imgur.com/wrDjQLr.jpg",
+                                        text: "This was the wiring harness for just the joystick and the two motors."
+                                    }
+                                ])
+                            }>
+                            <MdPhotoCamera />
+                        </button>
+                    </div>
+                    <p>
+                        Another great collab with my partner. This presented with some interesting engineering challenges on the hardware
+                        side due to high power consumption. The claw itself was operational, as were motors to raise/lower it and sweep it
+                        side to side, all controlled by the joystick. With the costume as heavy enough as it was, we elected to not have it
+                        fully powered on the go.
+                    </p>
                 </div>
             ],
             link: (
-                <>
+                <div className="flex">
                     <a
                         className={`text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 px-3 mx-2 py-2 rounded-md text-md font-light`}
                         target="_blank"
                         href="https://github.com/atlc/arduino-smoke-detector">
+                        <span className="flex text-3xl">
+                            <AiOutlineGithub />
+                        </span>{" "}
                         smoke detector
                     </a>
-                    <a
-                        className={`text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 px-3 mx-2 py-2 rounded-md text-md font-light`}
-                        target="_blank"
-                        href="https://www.npmjs.com/package/shitpostify">
-                        shitpostify
-                    </a>
-                </>
+                </div>
             )
         }
     ];
