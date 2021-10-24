@@ -1,6 +1,6 @@
 import { MdPhotoCamera } from "react-icons/md";
-import { IoLogoNpm } from "react-icons/io";
 import { AiOutlineGithub } from "react-icons/ai";
+import { IoLogoNpm } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { selectColor, selectDarkMode } from "../store/reducers";
 import Layout from "../components/Layout";
@@ -8,6 +8,7 @@ import CardContainer from "../components/CardContainer";
 import Card from "../components/Card";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import tw_colors from "tailwindcss/colors";
 
 const SwalWRC = withReactContent(Swal);
 
@@ -40,7 +41,7 @@ const Experience = () => {
         });
 
         const queue = SwalWRC.mixin({
-            background: dark && `${color}`,
+            background: dark ? tw_colors.gray[900] : tw_colors[color][100],
             showClass: {
                 backdrop: `swal2-noanimation`,
                 popup: "",
@@ -54,11 +55,11 @@ const Experience = () => {
         });
 
         for await (const [index, img] of images.entries()) {
-            if (index === images.length - 1) {
-                await queue.fire({ ...img, confirmButtonText: "Close" });
-            } else {
-                await queue.fire({ ...img, currentProgressStep: index });
-            }
+            const modal_options = { ...img, currentProgressStep: index };
+
+            if (index === images.length - 1) modal_options.confirmButtonText = "Close";
+
+            await queue.fire(modal_options);
         }
     };
 
