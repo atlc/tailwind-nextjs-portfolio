@@ -1,11 +1,8 @@
 import Layout from "../components/Layout";
 import CardContainer from "../components/CardContainer";
 import Card from "../components/Card";
-import { useSelector } from "react-redux";
-import { selectColor } from "../store/reducers";
 
 const certifications = () => {
-    const color = useSelector(selectColor);
     const certs = [
         {
             title: "Microsoft Certified: Azure Fundamentals",

@@ -11,7 +11,8 @@ const links = [
     { path: "/", text: "Home" },
     { path: "/experience", text: "Experience" },
     { path: "/projects", text: "Projects" },
-    { path: "/certifications", text: "Certifications" }
+    { path: "/certifications", text: "Certifications" },
+    { path: "/contact", text: "Contact" }
 ];
 
 const colors = ["red", "yellow", "green", "blue", "indigo", "purple", "pink"];
