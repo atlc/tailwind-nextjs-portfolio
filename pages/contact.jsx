@@ -55,10 +55,34 @@ const Contact = () => {
                 }).then(res => {
                     if (res.isConfirmed) {
                         console.log({ email, message });
-                        /** fetch to (api.atlc/contact), change that to not use tokens but instead evaluate req.get('origin')
-                         *
-                         * if email is not enqueued, send Swal with my email address and maybe a mailto link?
-                         */
+
+                        try {
+                            const res = await fetch("https://api.atlc.dev/v1/contact", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify({ email, message })
+                            });
+
+                            const data = await res.json();
+
+                            if (!res.ok) throw Error(data.error || data.message || "An unknown error occurred");
+
+                            if (data.message === "Queued. Thank you") {
+                                Swal_no_animation.fire("Thanks!");
+                            } else {
+                                throw Error("The mailing service may not have processed the request");
+                            }
+                        } catch (error) {
+                            console.log({ message: "Error attempting to send email", error });
+                            Swal_no_animation.fire({
+                                title: "Error attempting to send email",
+                                icon: "error",
+                                text: `${error.message || "Check console logs for further details"}
+                                 \n\n Please contact me directly at andrewlloydcartwright@gmail.com`
+                            });
+                        }
                     }
                 });
             }
