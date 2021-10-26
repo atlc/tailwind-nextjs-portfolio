@@ -52,12 +52,12 @@ const Contact = () => {
                 Swal_no_animation.fire({
                     title: "Ready to send?",
                     text: `I'll be getting back to you at ${email} as soon as I can, thanks!`
-                }).then(res => {
+                }).then(async res => {
                     if (res.isConfirmed) {
                         console.log({ email, message });
 
                         try {
-                            const res = await fetch("https://api.atlc.dev/v1/contact", {
+                            const res = await fetch("https://api.atlc.dev/v1/contact/me", {
                                 method: "POST",
                                 headers: {
                                     "Content-Type": "application/json"
@@ -69,11 +69,7 @@ const Contact = () => {
 
                             if (!res.ok) throw Error(data.error || data.message || "An unknown error occurred");
 
-                            if (data.message === "Queued. Thank you") {
-                                Swal_no_animation.fire("Thanks!");
-                            } else {
-                                throw Error("The mailing service may not have processed the request");
-                            }
+                            Swal_no_animation.fire("Thanks!");
                         } catch (error) {
                             console.log({ message: "Error attempting to send email", error });
                             Swal_no_animation.fire({
