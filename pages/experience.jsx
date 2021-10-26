@@ -17,14 +17,14 @@ const Experience = () => {
             employer: "Covalence.io",
             position: "Instructor",
             description:
-                "Taught students of our immersive full-stack online bootcamp in daily classes, performed video code reviews for student lab submissions, and provided community support to our part time students via Discord. \n The curriculum encompases general frontend fundamentals (HTML, CSS, JS), React (with TypeScript), Node (with TypeScript, Express, MySQL, Passport) ",
+                "Taught students within our immersive full-stack online bootcamp via daily classes and one-on-one mentorship; performed video code reviews for student lab submissions, and provided community support to our part time students via Discord.\nThe curriculum is an intensive 14-week program, encompassing general frontend fundamentals (HTML, CSS, JS), React, Node, TypeScript, MySQL, authentication, and cloud deployment.",
             dates: "2020 - Present"
         },
         {
             position: "Devops Engineer; Application Systems Analyst",
             employer: "Hubbard Systems",
-            description: `As the Devops Engineer, I spearheaded the founding of our Devops processes, automating and improving internal processes where needed. I created a CI/CD pipeline with Jenkins to build and deploy our application with a COBOL backend paired with a React & Electron client. I also created an API documentation system using SlateDocs, and wrote a Chrome extension that parsed our source code or JSON responses to create a markdown table describing that endpoint for our API documentation.\n I set up a Chocolatey server where our CI/CD process automatically packaged everything for deployment to clients, and created a Powershell script for configuring clients' servers to manage all the Chocolatey packages in addition to setting system-wide configurations to automate client installs. Also created a tool with Node to generate millions of records to create a sterile dataset for our new application. \n As an ASA, I trained and assisted clients in daily usage of our accounting application. Outside of application support, I was involved with SQL Server, Windows & Linux server administration.`,
-            dates: "2019-2020; 2015-2016"
+            description: `As the Devops Engineer (2019-2020), I spearheaded the founding of our Devops processes, automating and improving internal processes where needed. I created a CI/CD pipeline with Jenkins to build and deploy our application with a COBOL backend paired with a React & Electron client. I also created an API documentation system using SlateDocs, and wrote a Chrome extension that parsed our source code or JSON responses to create a markdown table describing that endpoint for our API documentation.\n I set up a Chocolatey server where our CI/CD process automatically packaged everything for deployment to clients, and created a Powershell script for configuring clients' servers to manage all the Chocolatey packages in addition to setting system-wide configurations to automate client installs. Also created a tool with Node to generate millions of records to create a sterile dataset for our new application. \n As an ASA (2015-2016), I trained and assisted clients in daily usage of our accounting application. Outside of application support, I was involved with SQL Server, Windows & Linux server administration.`,
+            dates: " 2015-2016; 2019-2020"
         },
         {
             position: "Software Developer",

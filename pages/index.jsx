@@ -13,7 +13,7 @@ const Home = () => {
 
     const button_style = {
         lg: `text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 px-3 mx-2 py-2 rounded-md text-md font-light`,
-        sm: `text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 p-1 mx-1 rounded-md text-base font-light`
+        sm: `text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 p-1 mx-1 rounded-md text-sm font-light`
     };
 
     let array_to_get_around_batched_updates = [...text];
@@ -56,12 +56,12 @@ const Home = () => {
     return (
         <div className="flex flex-col">
             <div className="flex-grow">
-                <Layout>
+                <Layout className="-mb-20">
                     <div className="mt-10">
                         {text.map((paragraph, index) => (
                             <div key={`intro-text-paragraph-${index}`} className="flex items-center">
                                 <div
-                                    className={`mx-auto p-5 text-center text-${color}-800 dark:text-${color}-300 font-light text-lg md:text-2xl`}>
+                                    className={`mx-auto px-5 py-2 text-center text-${color}-800 dark:text-${color}-300 font-light text-lg md:text-2xl`}>
                                     {paragraph}
                                 </div>
                             </div>
@@ -71,7 +71,7 @@ const Home = () => {
             </div>
             <footer className="flex items-center px-3 -mt-20 md:px-20">
                 <p
-                    className={`-mt-20 leading-7 md:leading-10 mx-auto text-center text-${color}-800 dark:text-${color}-300 font-light text-md md:text-xl`}>
+                    className={`-mt-20 leading-7 md:leading-10 mx-auto text-center text-${color}-800 dark:text-${color}-300 font-light text-xs md:text-lg lg:text-xl`}>
                     This site was built utilizing{" "}
                     <a className={button_style.sm} href="https://nextjs.org/">
                         Next.js
@@ -84,7 +84,7 @@ const Home = () => {
                     <a className={button_style.sm} href="https://react-redux.js.org/">
                         Redux
                     </a>{" "}
-                    (formerly managed with the{" "}
+                    (formerly with the{" "}
                     <a
                         className={`font-mono text-sm md:text-lg px-1 rounded-md bg-gray-700 text-${color}-300 dark:bg-gray-600 dark:text-${color}-300`}
                         href="https://reactjs.org/docs/hooks-reference.html#usecontext">

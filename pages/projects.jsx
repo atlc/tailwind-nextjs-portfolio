@@ -68,10 +68,10 @@ const Experience = () => {
             title: "Core API",
             description: [
                 <p>
-                    I created a monolith API to serve as the backbone of many of my smaller projects, with features like centralized auth to
-                    allow registration of one service be applicable for all services. Utilizing a database cluster allows me to have each
-                    service operate with its own distinct database, and each new backend can be rapidly finished by writing just few routes
-                    and queries.
+                    I created a monolithic API to serve as the backbone of many of my smaller projects, with features like centralized auth
+                    to allow registration of one service be applicable for all services. Utilizing a database cluster allows me to have each
+                    service operate with its own distinct database, and each new project's backend can be rapidly finished by writing just
+                    few routes and queries.
                 </p>,
 
                 <div className="flex">Tech stack used: Node.js, Typescript, Express, Passport, MySQL, Mailgun, Heroku, DigitalOcean</div>
@@ -216,6 +216,40 @@ const Experience = () => {
                     </a>
                 </div>
             )
+        },
+        {
+            title: "Open-Source Contributions",
+            description: [
+                <div>
+                    <p>
+                        <LGQuote>Slate</LGQuote>
+                    </p>
+                    <p>
+                        I found a bug where deeply nested headers in Slate documentation caused HTML to be added to the document title.{" "}
+                        Implemented a fix which was merged.
+                    </p>
+                </div>,
+                <div>
+                    <p>
+                        <LGQuote>Studio Ghibli API</LGQuote>
+                    </p>
+                    <p>
+                        We utilize the Studio Ghibli API for a handful of lab assignments for Covalence. They had an odd edge case for some
+                        of their data turning up null due to how they enumerated object properties. Implemented a fix which was merged.
+                    </p>
+                </div>,
+                <div>
+                    <p>
+                        <LGQuote>python-roku</LGQuote>
+                    </p>
+                    <p>
+                        I kept losing the remote to my TV, a classic dilemma. I solved it the way a developer would solve such an issue -
+                        finding a CLI project! The project I found worked great, except for the fact that controls were not iterable,
+                        forcing one to call a command many times over if needed. I submitted a pull request to allow certain methods to be
+                        iterable. Though unmerged, it did generate good discussion and the primary developer liked the idea.
+                    </p>
+                </div>
+            ]
         }
     ];
 
