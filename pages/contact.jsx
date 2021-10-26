@@ -40,9 +40,8 @@ const Contact = () => {
             const { value: message } = await Swal_no_animation.fire({
                 title: "Thanks for the address!",
                 input: "textarea",
-                inputLabel: "Message:",
+                inputLabel: "Please provide a brief message about your inquiry:",
                 confirmButtonText: "Next",
-                inputPlaceholder: "Please provide a brief message about your inquiry, and I'll get back to you as soon as I can!",
                 inputValidator: value => {
                     if (!value) return "Please send a brief message";
                 }
@@ -51,7 +50,7 @@ const Contact = () => {
             if (message) {
                 Swal_no_animation.fire({
                     title: "Ready to send?",
-                    text: `I'll be getting back to you at ${email} as soon as I can, thanks!`
+                    text: `I'll be getting in touch with you at ${email} as soon as I can, thanks!`
                 }).then(async res => {
                     if (res.isConfirmed) {
                         console.log({ email, message });
@@ -69,7 +68,14 @@ const Contact = () => {
 
                             if (!res.ok) throw Error(data.error || data.message || "An unknown error occurred");
 
-                            Swal_no_animation.fire("Thanks!");
+                            console.log({ mail_service_response: data });
+
+                            Swal_no_animation.fire({
+                                title: "Thanks!",
+                                icon: "success",
+                                text: "The message is enqueued, I'll be in touch.",
+                                confirmButtonText: "Later!"
+                            });
                         } catch (error) {
                             console.log({ message: "Error attempting to send email", error });
                             Swal_no_animation.fire({
