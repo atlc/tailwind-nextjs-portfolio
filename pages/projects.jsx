@@ -68,10 +68,9 @@ const Experience = () => {
             title: "Core API",
             description: [
                 <p>
-                    I created a monolithic API to serve as the backbone of many of my smaller projects, with features like centralized auth
-                    to allow registration of one service be applicable for all services. Utilizing a database cluster allows me to have each
-                    service operate with its own distinct database, and each new project's backend can be rapidly finished by writing just
-                    few routes and queries.
+                    I created a monolithic API to serve as the backbone of many of my smaller projects, with features like centralized auth.
+                    Utilizing a database cluster allows me to have each service operate with its own distinct database, and each new
+                    project's backend can be rapidly finished by writing just few routes and queries.
                 </p>,
 
                 <div className="flex">Tech stack used: Node.js, Typescript, Express, Passport, MySQL, Mailgun, Heroku, DigitalOcean</div>
@@ -94,8 +93,7 @@ const Experience = () => {
             title: "Node Modules",
             description: [
                 <p>
-                    <LGQuote>@atlc/hibp</LGQuote> takes a password and checks it against HaveIBeenPwned's Passwords API. Returns an object
-                    with the status of whether or not that password has been found in a breach, and the number of times. Written in
+                    <LGQuote>@atlc/hibp</LGQuote> takes a password and checks it against HaveIBeenPwned's Passwords API. Written in
                     Typescript and definitions are included in the module. No external dependencies.
                 </p>,
                 <p>
@@ -107,7 +105,7 @@ const Experience = () => {
                         target="_blank">
                         corresponding Chrome Extension
                     </a>{" "}
-                    seem to enjoy it! Also written in TS with included definitions, & no external dependencies.
+                    seem to enjoy it! Written in TS with included definitions, & no external dependencies.
                 </p>
             ],
             link: (
@@ -157,8 +155,9 @@ const Experience = () => {
                         </button>
                     </div>
                     <p>
-                        I promise that we're using approved smoke/CO detectors in our residence. I was curious to see how inexpensively and
-                        easily a Smoke/CO/Gas detector could produced for, with wide open possibilities for accessibility purposes.
+                        I promise that we're using approved smoke/CO detectors in our residence, <em>but</em> I was curious to see how
+                        inexpensively and easily a Smoke/CO/Gas detector could produced for, with wide open possibilities for accessibility
+                        purposes.
                     </p>
                 </div>,
                 <div>
@@ -234,8 +233,9 @@ const Experience = () => {
                         <LGQuote>Studio Ghibli API</LGQuote>
                     </p>
                     <p>
-                        We utilize the Studio Ghibli API for a handful of lab assignments for Covalence. They had an odd edge case for some
-                        of their data turning up null due to how they enumerated object properties. Implemented a fix which was merged.
+                        We utilize the Studio Ghibli API for a handful of student lab assignments for Covalence. They had an odd edge case
+                        for some of their data turning up null due to how they enumerated object properties. Implemented a fix which was
+                        merged.
                     </p>
                 </div>,
                 <div>
@@ -243,10 +243,10 @@ const Experience = () => {
                         <LGQuote>python-roku</LGQuote>
                     </p>
                     <p>
-                        I kept losing the remote to my TV, a classic dilemma. I solved it the way a developer would solve such an issue -
-                        finding a CLI project! The project I found worked great, except for the fact that controls were not iterable,
-                        forcing one to call a command many times over if needed. I submitted a pull request to allow certain methods to be
-                        iterable. Though unmerged, it did generate good discussion and the primary developer liked the idea.
+                        I kept losing the remote to my TV, so I solved it the way a developer would solve such an issue - finding a CLI
+                        project! The project I found worked great, except for the fact that controls were not iterable. I submitted a PR to
+                        allow certain methods to be iterable. Though unmerged, it did generate good discussion and the developer liked the
+                        idea.
                     </p>
                 </div>
             ]
@@ -257,7 +257,7 @@ const Experience = () => {
         <Layout>
             <CardContainer>
                 {projects.map(({ title, description, link }, index) => (
-                    <Card key={`project-card-${index}`} header={title} bodies={[...description]} second_body={link} />
+                    <Card id={title} key={`project-card-${index}`} header={title} bodies={[...description]} second_body={link} />
                 ))}
             </CardContainer>
         </Layout>
