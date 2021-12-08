@@ -136,6 +136,93 @@ const Experience = () => {
             )
         },
         {
+            title: "Misc Projects",
+            description: [
+                <div>
+                    <div className="flex">
+                        <p className="mr-2">
+                            <LGQuote>Quick Jeopardy</LGQuote>{" "}
+                        </p>
+                        <button
+                            className="text-3xl"
+                            onClick={() =>
+                                SwalWithImages([
+                                    { url: "https://raw.githubusercontent.com/atlc/arduino-smoke-detector/master/demo.gif" },
+                                    { url: "https://raw.githubusercontent.com/atlc/arduino-smoke-detector/master/schematic.png" }
+                                ])
+                            }>
+                            <MdPhotoCamera />
+                        </button>
+                    </div>
+                    <p>Pulls questions and answers from a Jeopardy API and creates a quick and configurable 1-off trivia board.</p>
+                </div>,
+                <div>
+                    <div className="flex">
+                        <p className="mr-2">
+                            <LGQuote>Notes App</LGQuote>
+                        </p>
+                        <button
+                            className="text-3xl"
+                            onClick={() =>
+                                SwalWithImages([
+                                    { url: "https://raw.githubusercontent.com/atlc/arduino-smoke-detector/master/demo.gif" },
+                                    { url: "https://raw.githubusercontent.com/atlc/arduino-smoke-detector/master/schematic.png" }
+                                ])
+                            }>
+                            <MdPhotoCamera />
+                        </button>
+                    </div>
+                    <p>Notes App utilizes my CoreAPI and is a note taking app that supports and renders markdown-capable notes.</p>
+                </div>,
+                <div>
+                    <div className="flex">
+                        <p className="mr-2">
+                            <LGQuote>Kitchen Noodle</LGQuote>
+                        </p>
+                        <button
+                            className="text-3xl"
+                            onClick={() =>
+                                SwalWithImages([
+                                    { url: "https://raw.githubusercontent.com/atlc/arduino-smoke-detector/master/demo.gif" },
+                                    { url: "https://raw.githubusercontent.com/atlc/arduino-smoke-detector/master/schematic.png" }
+                                ])
+                            }>
+                            <MdPhotoCamera />
+                        </button>
+                    </div>
+                    <p>Kitchen Noodle (codename "Ceramic CMS") is a fully-fledged CMS for my partner's antiques sales.</p>
+                </div>
+            ],
+            link: (
+                <div className="flex">
+                    <div className="flex">
+                        <a
+                            className={`text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 px-3 mx-2 py-2 rounded-md text-md font-light`}
+                            target="_blank"
+                            href="http://jeopardy.atlc.dev">
+                            Quick Jeopardy
+                        </a>
+                    </div>
+                    <div className="flex">
+                        <a
+                            className={`text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 px-3 mx-2 py-2 rounded-md text-md font-light`}
+                            target="_blank"
+                            href="http://notes.atlc.dev">
+                            Notes App
+                        </a>
+                    </div>
+                    <div className="flex">
+                        <a
+                            className={`text-gray-100 shadow-xl bg-${color}-600 hover:bg-${color}-300 hover:text-${color}-700 px-3 mx-2 py-2 rounded-md text-md font-light`}
+                            target="_blank"
+                            href="http://kitchen.atlc.dev">
+                            Kitchen Noodle
+                        </a>
+                    </div>
+                </div>
+            )
+        },
+        {
             title: "Arduino",
             description: [
                 <div>
